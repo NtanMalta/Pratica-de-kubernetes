@@ -1,0 +1,28 @@
+apiVersion: app/v1
+
+Kind: Deployment
+
+metadata:
+  name: kubernetes-front
+  namespace: aluno03
+
+spec:
+  replicas: 1
+
+  selector:
+    matchlabels:
+      app: kubernetes-front
+
+  templates:
+    metadata:
+      labels:
+        app: kubernetes-front
+
+  spec:
+    container:
+    - name: kubernetes-front
+      image: kubernetes:v1
+      imagePullPolicy: never
+      pots:
+        - containerPort: 3000      
+
